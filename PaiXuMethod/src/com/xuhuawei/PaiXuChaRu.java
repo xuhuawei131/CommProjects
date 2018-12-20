@@ -9,12 +9,9 @@ public class PaiXuChaRu extends PaiXuImp {
             int temp = arr[i];
             int j = i - 1;
             //依次和i前面的元素比较，寻找合适插入位置
-            while (temp < arr[i]) {
-                arr[j + 1] = arr[i];
+            while (j>=0&&temp < arr[j]) {
+                arr[j + 1] = arr[j];
                 j--;
-                if (j == -1) {
-                    break;
-                }
             }
             //将插入元素插入到合适位置
             arr[j + 1] = temp;
