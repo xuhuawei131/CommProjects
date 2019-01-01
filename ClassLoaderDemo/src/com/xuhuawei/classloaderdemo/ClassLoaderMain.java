@@ -8,6 +8,7 @@ public class ClassLoaderMain {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, SecurityException, IllegalArgumentException, InvocationTargetException {
         //这个类class的路径
         String classPath = "/Users/mac/CommProjects/ClassLoaderDemo/src/com/xuhuawei/classloaderdemo/Log.class";
+
         MyClassLoader myClassLoader = new MyClassLoader(classPath);
         //类的全称
         String packageNamePath = "com.xuhuawei.classloaderdemo.Log";
@@ -23,6 +24,5 @@ public class ClassLoaderMain {
         String[] arg = {"ad"};
         method.invoke(object, (Object) arg);
     }
-
-
+    
 }
