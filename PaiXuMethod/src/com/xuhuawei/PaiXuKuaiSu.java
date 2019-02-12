@@ -14,33 +14,34 @@ public class PaiXuKuaiSu extends PaiXuImp {
     }
 
     public int[] quickSort(int[] arr, int left, int right) {
-        int t;
+
         if (left < right) {
-            int s = arr[left];
-            int i = left;
-            int j = right + 1;
+            int compareValue = arr[left];
+            int tempLeftIndex = left;
+            int tempRightIndex = right + 1;
             while (true) {
                 //向右找大于s的数的索引
-                while (i + 1 < arr.length && arr[++i] < s) ;
+                while (tempLeftIndex + 1 < arr.length && arr[++tempLeftIndex] < compareValue) ;
                 //向左找小于s的数的索引
-                while (j > 0 && arr[--j] > s) ;
+                while (tempRightIndex > 0 && arr[--tempRightIndex] > compareValue) ;
                 //如果i>=j，退出循环
-                if (i >= j) {
+                if (tempLeftIndex >= tempRightIndex) {
                     break;
                 } else {
                     //交换i和j的位置的元素
-                    t = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = t;
+                    int t = arr[tempLeftIndex];
+                    arr[tempLeftIndex] = arr[tempRightIndex];
+                    arr[tempRightIndex] = t;
                 }
             }
-            arr[left] = arr[j];
-            arr[j] = s;
-            //对左边进行递归
-            quickSort(arr, left, j - 1);
-            //对右边进行递归
-            quickSort(arr, j + 1, right);
 
+            arr[left] = arr[tempRightIndex];
+            arr[tempRightIndex] = compareValue;
+
+            //对左边进行递归
+            quickSort(arr, left, tempRightIndex - 1);
+            //对右边进行递归
+            quickSort(arr, tempRightIndex + 1, right);
         }
         return arr;
     }
