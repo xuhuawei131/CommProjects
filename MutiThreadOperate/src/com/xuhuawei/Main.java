@@ -33,9 +33,8 @@ public class Main  implements Runnable{
             if(length==0){
                 break;
             }else{
-                thread.addNewTask(""+length);
+//                thread.addNewTask(""+length);
             }
         }
-    }
     }
 }
